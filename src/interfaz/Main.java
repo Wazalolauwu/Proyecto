@@ -1,6 +1,10 @@
-package negocio;
+package interfaz;
 
 import modelo.*;
+import negocio.GestorLugares;
+import negocio.GestorRecomendaciones;
+import negocio.GestorRutas;
+import negocio.GestorTuristas;
 
 import java.util.Scanner;
 
