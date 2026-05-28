@@ -1,27 +1,20 @@
 package modelo;
 
 public class Recomendacion {
+    private Ruta ruta;
+    private GuiasTurismo guia;
+    private Turista turista;
+    private String descripcionAuditoria;
 
-    private String guia;
-    private String descripcion;
-
-    public Recomendacion(String guia, String descripcion) {
+    public Recomendacion(Ruta ruta, GuiasTurismo guia, Turista turista, String descripcionAuditoria) {
+        this.ruta = ruta;
         this.guia = guia;
-        this.descripcion = descripcion;
+        this.turista = turista;
+        this.descripcionAuditoria = descripcionAuditoria;
     }
 
-    public String getGuia() {
-        return guia;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Guía: " + guia +
-                "\nRecomendación: " + descripcion;
+    public void mostrarRecomendacion() {
+        System.out.println("Recomendación de " + guia.getNombre() + " para " + turista.getNombre() +
+                " en Ruta '" + ruta.getNombreRuta() + "': " + descripcionAuditoria);
     }
 }

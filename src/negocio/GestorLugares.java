@@ -34,4 +34,7 @@ public class GestorLugares {
             }
         }
     }
+    public java.util.List<LugarTuristico> obtenerTodosLosLugares() {
+        return this.lugares;
+    }
 }
