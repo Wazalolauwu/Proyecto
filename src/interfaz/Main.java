@@ -5,6 +5,7 @@ import negocio.GestorLugares;
 import negocio.GestorRecomendaciones;
 import negocio.GestorRutas;
 import negocio.GestorTuristas;
+import negocio.GestorGuias;
 
 import java.util.Scanner;
 
@@ -17,8 +18,8 @@ public class Main {
         GestorTuristas gestorTuristas = new GestorTuristas();
         GestorLugares gestorLugares = new GestorLugares();
         GestorRutas gestorRutas = new GestorRutas();
-        GestorRecomendaciones gestorRecomendaciones =
-                new GestorRecomendaciones();
+        GestorRecomendaciones gestorRecomendaciones = new GestorRecomendaciones();
+        GestorGuias gestorGuias = new GestorGuias();
 
         int opcion;
 
@@ -33,7 +34,9 @@ public class Main {
             System.out.println("6. Mostrar rutas");
             System.out.println("7. Agregar recomendación");
             System.out.println("8. Mostrar recomendaciones");
-            System.out.println("9. Salir");
+            System.out.println("9. Registrar guía de turismo");
+            System.out.println("10. Mostrar guías de turismo");
+            System.out.println("11. Salir");
 
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
@@ -57,18 +60,13 @@ public class Main {
                     int tiempo = sc.nextInt();
                     sc.nextLine();
 
-                    Turista turista =
-                            new Turista(nombre, edad,
-                                    intereses, tiempo);
-
+                    Turista turista = new Turista(nombre, edad, intereses, tiempo);
                     gestorTuristas.registrarTurista(turista);
-
                     break;
 
                 case 2:
 
                     gestorTuristas.mostrarTuristas();
-
                     break;
 
                 case 3:
@@ -85,17 +83,13 @@ public class Main {
                     System.out.print("Horario: ");
                     String horario = sc.nextLine();
 
-                    LugarTuristico lt =
-                            new LugarTuristico(lugar, ubicacion, categoria, horario);
-
+                    LugarTuristico lt = new LugarTuristico(lugar, ubicacion, categoria, horario);
                     gestorLugares.registrarLugar(lt);
-
                     break;
 
                 case 4:
 
                     gestorLugares.mostrarLugares();
-
                     break;
 
                 case 5:
@@ -110,19 +104,13 @@ public class Main {
                     int duracion = sc.nextInt();
                     sc.nextLine();
 
-                    Ruta ruta =
-                            new Ruta(nombreRuta,
-                                    tipo,
-                                    duracion);
-
+                    Ruta ruta = new Ruta(nombreRuta, tipo, duracion);
                     gestorRutas.generarRuta(ruta);
-
                     break;
 
                 case 6:
 
                     gestorRutas.mostrarRutas();
-
                     break;
 
                 case 7:
@@ -133,28 +121,41 @@ public class Main {
                     System.out.print("Descripción: ");
                     String descripcion = sc.nextLine();
 
-                    Recomendacion recomendacion =
-                            new Recomendacion(
-                                    guia,
-                                    descripcion
-                            );
-
-                    gestorRecomendaciones
-                            .agregarRecomendacion(recomendacion);
-
+                    Recomendacion recomendacion = new Recomendacion(guia, descripcion);
+                    gestorRecomendaciones.agregarRecomendacion(recomendacion);
                     break;
 
                 case 8:
 
-                    gestorRecomendaciones
-                            .mostrarRecomendaciones();
-
+                    gestorRecomendaciones.mostrarRecomendaciones();
                     break;
 
                 case 9:
+                    System.out.print("ID del Guía (número entero): ");
+                    int idGuia = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Nombre del Guía: ");
+                    String nombreGuia = sc.nextLine();
+
+                    System.out.print("Especialidad turística: ");
+                    String especialidad = sc.nextLine();
+
+                    System.out.print("Años de experiencia: ");
+                    int experiencia = sc.nextInt();
+                    sc.nextLine();
+
+                    GuiasTurismo nuevoGuia = new GuiasTurismo(idGuia, nombreGuia, especialidad, experiencia);
+                    gestorGuias.agregarGuia(nuevoGuia);
+                    break;
+
+                case 10:
+                    gestorGuias.mostrarGuias();
+                    break;
+
+                case 11:
 
                     System.out.println("Fin del sistema");
-
                     break;
 
                 default:
@@ -162,6 +163,6 @@ public class Main {
                     System.out.println("Opción inválida");
             }
 
-        } while(opcion != 9);
+        } while(opcion != 11);
     }
 }
