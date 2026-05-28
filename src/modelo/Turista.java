@@ -22,9 +22,7 @@ public class Turista {
         return edad;
     }
 
-    public String getIntereses() {
-        return intereses;
-    }
+    public String getIntereses() { return intereses; }
 
     public int getTiempoDisponible() {
         return tiempoDisponible;

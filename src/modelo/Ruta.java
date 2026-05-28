@@ -23,7 +23,7 @@ public class Ruta {
 
         for (LugarTuristico lugar : todosLosLugares) {
             // El interés del turista debe coincidir con la categoría del lugar
-            if (turista.getInterenses().equalsIgnoreCase(lugar.getCategoria())) {
+            if (turista.getIntereses().equalsIgnoreCase(lugar.getCategoria())) {
                 // Simulación de costo de tiempo por visitar cada lugar (ej: 2 horas por lugar)
                 if (tiempoRestante >= 2) {
                     this.lugaresAsignados.add(lugar);

@@ -13,12 +13,10 @@ public class GestorRecomendaciones {
 
     public void agregarRecomendacion(Recomendacion recomendacion) {
 
-        if(recomendacion.getDescripcion().isEmpty()) {
-
-            System.out.println("Descripción inválida");
-
+        // CORRECCIÓN ALTERNATIVA: Validar que el objeto contenga un turista asignado
+        if (recomendacion.getTurista() == null) {
+            System.out.println("Recomendación inválida: Falta asignar el Turista.");
         } else {
-
             recomendaciones.add(recomendacion);
             System.out.println("Recomendación agregada");
         }
